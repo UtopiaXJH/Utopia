@@ -1,0 +1,719 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Linux</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="76f6a66e-db44-43b7-898e-f970cff71594" class="page sans"><header><h1 class="page-title">Linux</h1><p class="page-description"></p></header><div class="page-body"><p id="1298b850-9fcc-4bc2-97f3-6d8d2a894344" class="">
+</p><p id="8a811f2c-b6a3-4b8d-bf1e-ac1bf960b33e" class="">
+</p><p id="30699dc6-a5c4-45d3-b126-b1046af4844e" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Linux基础命令</summary><div class="indented"><h2 id="aa4aad40-b64e-4cda-a39a-0975bbe4d14e" class="">1. 查看目录信息</h2><ul id="522c2cc7-e46d-41b8-b71d-67e538fc59dd" class="bulleted-list"><li style="list-style-type:disc"><code><strong>ls [-a -l -h] [Linux路径]</strong></code>：查看当前目录信息<ul id="b45a1546-38e1-4c73-b25f-737b6a5c8e28" class="bulleted-list"><li style="list-style-type:circle">-l：以列表的形式进行显示</li></ul><ul id="0aed4e67-d257-4cd5-90a7-c56918cc86be" class="bulleted-list"><li style="list-style-type:circle">-h：显示文件的大小（带单位，如k，m，g）</li></ul><ul id="ebbaaa4d-0469-4f3a-a701-af3f6c9f6bc8" class="bulleted-list"><li style="list-style-type:circle">-a：显示隐藏的文件</li></ul></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="712636b8-d360-4f88-8c3f-03bfd0cc2f65"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="df5a0800-c0d2-4bb3-9231-af1684a7b189" class="">以 . 开头的文件或文件夹默认被隐藏，需要-a才能显示出来</p></div></figure><ul id="03b724c2-e2d5-450f-aef6-304f96f9ef6a" class="bulleted-list"><li style="list-style-type:disc"><code><strong>tree</strong></code>：以树状方式显示目录信息</li></ul><ul id="75efaebe-937a-4bb7-a4ed-703c39c95b6a" class="bulleted-list"><li style="list-style-type:disc"><code><strong>pwd</strong></code>（print work directory）：查看当前目录的路径</li></ul><p id="1d14255d-bc64-4c7e-9eb7-29814d83c5e7" class="">
+</p><h2 id="cf44607f-1f35-4635-b90b-7afe8c96eddc" class="">2.  切换目录命令</h2><ul id="f5f47cae-65de-4d32-8def-ef5d8c273302" class="bulleted-list"><li style="list-style-type:disc"><code><strong>cd 目录名</strong></code>：切换到指定目录</li></ul><ul id="b00cfd3e-78d8-4ca2-a6f2-512d6cdae9c5" class="bulleted-list"><li style="list-style-type:disc">cd~               切换到当前用户的HOME目录</li></ul><ul id="8e0340e9-b866-4797-9c3f-f3659891bcd0" class="bulleted-list"><li style="list-style-type:disc">cd ..               切换到上一级目录</li></ul><ul id="c03dc462-fb83-47fe-a0ea-5362833354a7" class="bulleted-list"><li style="list-style-type:disc">cd .                切换到当前目录</li></ul><ul id="7d9dc72a-79d0-4ff3-93a7-e473a08c0fe5" class="bulleted-list"><li style="list-style-type:disc">cd -               切换到上一次目录</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0684c84e-1289-4f8b-bb95-26c6f0beea27"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="cba210d3-202f-4ca7-9634-629e32591430" class="">cd命令直接执行，不写参数，表示回到用户的HOME目录</p></div></figure><h2 id="a7b0b8d6-348d-42c9-8623-7bc8f819bf29" class="">3. 创建、删除文件及目录命令的使用</h2><ul id="5a90f6e1-6a23-4bd9-afd8-461a14fcecc5" class="bulleted-list"><li style="list-style-type:disc"><code><strong>touch 文件名</strong></code><code> </code>                      创建文件</li></ul><ul id="6efd27a9-418e-4599-ad51-71105e0f9bc1" class="bulleted-list"><li style="list-style-type:disc"><code><strong>mkdir  目录名</strong></code><code>   </code>                   创建目录（文件夹）<ul id="e24d8246-5cf3-4da9-be72-47b7787475a4" class="bulleted-list"><li style="list-style-type:circle">-p：如果创建的目录中有依赖的目录，则一起创建，一次性创建多层级目录</li></ul></li></ul><ul id="6b02bc4e-e421-46c9-981a-d3954f36aba3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>rm 文件夹或者目录名</strong></code>        删除指定文件或目录<ul id="2baeb789-ee1d-4b6e-97e0-b69254d9eba2" class="bulleted-list"><li style="list-style-type:circle">-i：提示是否删除</li></ul><ul id="a0c29e18-5da3-46a5-bab8-d0bf6a1381a1" class="bulleted-list"><li style="list-style-type:circle">-r：以递归的形式删除目录，用于删除文件夹以及文件夹的内容</li></ul><ul id="63b8f13b-517c-426b-84df-b9af6cca7ada" class="bulleted-list"><li style="list-style-type:circle">-f：强行删除目录或文件，如果文件不存在也不进行报错（不提示，一般用于root用户）</li></ul><ul id="27d1ad51-152d-4123-8864-75d975d82a76" class="bulleted-list"><li style="list-style-type:circle">-d：删除空文件夹</li></ul></li></ul><ul id="e61c83fe-be0e-4464-b0e9-337fd070f589" class="bulleted-list"><li style="list-style-type:disc"><code><strong>rmdir 目录名</strong></code>                        删除空目录</li></ul><p id="a0851f44-5684-431b-9404-7048b37c273d" class="">
+</p><p id="125949a8-311c-458c-9523-b9743f741376" class=""><div class="indented"><h2 id="2a323ef0-3a6d-4422-ab68-90e78bc825d7" class="">4. 复制、移动文件及目录命令的使用</h2><ul id="92a0c9af-621f-4202-9ee9-ed99fc41e092" class="bulleted-list"><li style="list-style-type:disc"><code><strong>cp   [-i] [param1 被复制的文件] [param2 目的地]</strong></code>      拷贝文件、目录<ul id="326b7d2d-dabf-4aed-b874-70cbf97f3efd" class="bulleted-list"><li style="list-style-type:circle">-i：显示提示内容，防止已有文件被覆盖</li></ul><ul id="bf152c85-ae8d-4289-8f3a-13b968cde851" class="bulleted-list"><li style="list-style-type:circle">-r：以递归的形式进行复制，用于文件夹的复制</li></ul><ul id="81a03e15-4242-4f7e-a77b-c13dc684df56" class="bulleted-list"><li style="list-style-type:circle">-v：显示复制后文件的路径</li></ul><ul id="65ad2887-f432-4eb4-89b3-55ff8ca13a89" class="bulleted-list"><li style="list-style-type:circle">-a：保留原有文件的权限</li></ul></li></ul><ul id="b32123c9-3771-4dd2-b540-6e58d104c538" class="bulleted-list"><li style="list-style-type:disc"><code><strong>mv </strong></code><code>       </code>移动文件、移动目录、重命名<ul id="029d3f10-ab5d-414d-9f4c-b675e4b0716c" class="bulleted-list"><li style="list-style-type:circle">-i：如果移动的目录有相同的文件是否选择覆盖</li></ul><ul id="6183a42f-065b-452a-88d8-1b0f1d40e534" class="bulleted-list"><li style="list-style-type:circle">-v：显示移动后文件的路径</li></ul></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="332598d6-7ae0-490b-8ba5-d66ee348ad1c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="2e532ee8-0987-4dad-a43c-7be2cf62705d" class="">使用mv命令时，如果说移动的目的地不存在，相当于对移动目标进行重命名</p></div></figure></div></p><p id="984d6308-4a8f-4118-91ee-a336a11112df" class=""><div class="indented"><h2 id="fc2ee516-4f88-4c40-a26d-38ad53a2dfc8" class="">5. 查找文件、查找指定字符</h2><ul id="ab759f7c-2f94-4f1a-b583-5a79a1ca4691" class="bulleted-list"><li style="list-style-type:disc"><code><strong>find  [起始路径]  -name “被查找的文件名”</strong></code>： 按照名字查找文件</li></ul><ul id="e882622f-3e15-4c9a-b4da-3663a87be6d4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>find  [起始路径]  -size  (+/-)k/M/G</strong></code>：按照文件大小查找文件<ul id="b41bd289-ede6-4aa7-87b4-7d159ac55af9" class="bulleted-list"><li style="list-style-type:circle">通配符<ul id="cb2780e1-9d1a-47ce-8a08-8ddf58db9ac7" class="bulleted-list"><li style="list-style-type:square">* ： 代表0个或任意个任意字符</li></ul><ul id="9d734881-fb2d-475b-83bc-e1eb6117bed8" class="bulleted-list"><li style="list-style-type:square">?： 代表一个任意字符</li></ul></li></ul></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a73a9e1d-19e2-424c-a157-f1b84edcc081"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="197abdb2-def3-455d-9563-09aa0f4d03b7" class="">例如：</p><p id="b534fcf1-2d82-477a-b2d7-af5465968d8c" class="">test* ：表示匹配任何以test开头的内容</p><p id="8ac36db9-3fc1-4938-b006-e605fe915681" class="">*test：表示匹配任何以test结尾的内容</p><p id="03dc3ef4-dcf8-49d1-a06b-4a1292659131" class="">*test* ：表示匹配任何包含test的内容</p></div></figure><ul id="57ee6451-c1ae-4ebf-a74a-11879f831af0" class="bulleted-list"><li style="list-style-type:disc"><code>search</code> ： 查找指定字符<ul id="cd346865-a86a-4e10-b91c-6d593c30c2af" class="bulleted-list"><li style="list-style-type:circle">正则表达式<ul id="17e55419-a344-4be2-ac02-364045d6baa2" class="bulleted-list"><li style="list-style-type:square">. ： 匹配除了换行符以外的其他字符</li></ul><ul id="ae9d344e-1ce1-4e2f-bc05-1d76c48460a3" class="bulleted-list"><li style="list-style-type:square">^： 匹配开头为……的字符</li></ul><ul id="dfb5ba27-e52d-44e2-b6a9-b9ec8322e962" class="bulleted-list"><li style="list-style-type:square">$： 匹配结尾为……的字符</li></ul></li></ul></li></ul><ul id="7f5d1972-76ba-4cce-bdc3-96c8b8dac151" class="bulleted-list"><li style="list-style-type:disc"><code><strong>grep [-n]  关键字 文件路径</strong></code>：查找文件中的文本<ul id="60de467e-0e88-4449-a611-17bbbf472199" class="bulleted-list"><li style="list-style-type:circle">-i：忽略大小写</li></ul><ul id="6fcec7a2-b2ba-4541-953b-25fa933921e3" class="bulleted-list"><li style="list-style-type:circle">-n：显示匹配行号<strong>find  [起始路径]  -name “被查找的文件名”</strong>：<strong>find  [起始路径]  -name “被查找的文件名”</strong>：</li></ul><ul id="e2e54a33-24bf-49eb-8d43-3d40efb2b709" class="bulleted-list"><li style="list-style-type:circle">-v：显示不包含匹配文本的所有行</li></ul></li></ul><ul id="3fd7609b-4c4a-49cb-b489-e73beb867aac" class="bulleted-list"><li style="list-style-type:disc"><code><strong>which  [要查找的命令]</strong></code>：搜索某个系统命令的位置</li></ul><ul id="a3ffd346-e35c-428b-82da-1d80669cb822" class="bulleted-list"><li style="list-style-type:disc"><code><strong>whereis</strong></code>：定位可执行文件、源代码文件、帮助文件在文件系统的位置</li></ul><p id="c3f58cdc-fedf-4708-9605-71d56b87c1e4" class="">
+</p><h2 id="edb24ceb-c17a-49d5-add2-7f8a501d7587" class="">6.  重定向</h2><ul id="f83ab57e-3134-440c-8348-7c7b5412fc36" class="bulleted-list"><li style="list-style-type:disc">&gt;： 将左侧命令的结果，<strong>覆盖</strong>写入到符号右侧指定的文件中</li></ul><ul id="aaa30456-c72d-4200-b236-93bbfbd9a3a1" class="bulleted-list"><li style="list-style-type:disc">&gt;&gt;：将左侧命令的结果，<strong>追加</strong>写入到符号右侧指定的文件中</li></ul><p id="66da94df-8ab5-4039-85ce-9d829f9cf45d" class="">
+</p><h2 id="0ca2fb0d-94cc-44cf-8ef1-c39f8e20417c" class="">7. 管道</h2><ul id="faf7c13c-8914-4cae-bc1e-f77afa13ac1f" class="bulleted-list"><li style="list-style-type:disc">| ：用于存储临时数据，可以作为数据的中转站，将左边命令的结果作为右边命令的输入</li></ul><p id="116d2bb5-85f6-4d14-9452-bd060aca3876" class="">
+</p><h2 id="be54ebd6-601d-433d-88cc-29f458d3e6e5" class="">8.  显示、编辑文件中的内容</h2><ul id="ffa558f0-c992-4299-afb3-57332acb11e8" class="bulleted-list"><li style="list-style-type:disc">cat：显示文件中的内容，会一次性全部打印输出，用于小数据</li></ul><ul id="f9648c13-344a-4ffd-81f7-6e7eccca0c22" class="bulleted-list"><li style="list-style-type:disc">more：通过分页的形式显示文件中的内容，用于大数据</li></ul><ul id="661a8819-2b59-43b3-96f6-f965f6886002" class="bulleted-list"><li style="list-style-type:disc">less：通过窗口显示文件内容，用滚轮翻阅</li></ul><ul id="22585e98-ccaf-4b30-a3d7-751e983f3ee7" class="bulleted-list"><li style="list-style-type:disc">head：显示文件的前几行</li></ul><ul id="b9db7d94-9b1d-4f09-bcb5-d48c714bf203" class="bulleted-list"><li style="list-style-type:disc">gedit：编辑文件中的内容</li></ul><ul id="9e69ef6b-1085-472f-a69d-da59a916ac97" class="bulleted-list"><li style="list-style-type:disc">stat：显示文件或目录的详细信息</li></ul><ul id="96c49365-c79f-469f-9752-78d5828c8a39" class="bulleted-list"><li style="list-style-type:disc"><code><strong>wc [-c -m -l -w]  文件路径</strong></code><strong>    </strong>统计文件的行数、单词数量等<ul id="aaaa2d6a-aa75-432c-95ad-a4037ecd458f" class="bulleted-list"><li style="list-style-type:circle">-c：统计bytes数量</li></ul><ul id="6013a696-a180-4730-8eaa-5aba5ca7e69b" class="bulleted-list"><li style="list-style-type:circle">-m：统计字符数量</li></ul><ul id="3c6e41b3-06d1-4e96-a2bd-88c1dc68d9ce" class="bulleted-list"><li style="list-style-type:circle">-l：统计行数</li></ul><ul id="69e09dd2-d39a-4b40-bc5c-9978a25155a9" class="bulleted-list"><li style="list-style-type:circle">-w：统计单词数量</li></ul></li></ul><ul id="9a0fb929-bf86-477c-8d53-30318dbe8a62" class="bulleted-list"><li style="list-style-type:disc"><code><strong>echo 输出的内容</strong></code>：在命令行内输出指定内容</li></ul><ul id="bcc00eb6-80b9-491e-bb29-a64c933ec4c1" class="bulleted-list"><li style="list-style-type:disc"><strong>反引号 `</strong> ：反引号包围的内容，会被作为命令执行，而非普通的字符</li></ul><ul id="7cefdf3d-6f39-4887-be5e-06c0ad9730cc" class="bulleted-list"><li style="list-style-type:disc"><code><strong>tail [-f  -num]  Linux 路径</strong></code><strong> ：</strong>可以查看文件尾部内容<ul id="0e8d07be-173a-4045-82ff-288f17324ceb" class="bulleted-list"><li style="list-style-type:circle">-f：表示持续跟踪</li></ul><ul id="81073dbb-cbd8-41cf-8a2c-66d3367149a0" class="bulleted-list"><li style="list-style-type:circle">-num：表示查看尾部多少行</li></ul></li></ul><p id="6a1aedf6-437a-41ba-a82c-83da4c5f82e4" class="">
+</p><h2 id="feda09d2-7333-40d7-96f4-8cc100918a32" class="">9. 软链接和硬链接</h2><p id="212b9dfb-8d64-4d5e-bd9d-f68024f89e02" class="">可以将文件、文件夹链接到其他位置</p><p id="6b5092c3-4d3b-436c-96a7-98caa23107a7" class="">链接只是一个指向，并不是物理移动</p><ul id="5655f236-8ec2-4985-98a7-9d636b0bff04" class="bulleted-list"><li style="list-style-type:disc">ln：硬链接，文件内容与原文件有依赖关系，但文件本身是独立的</li></ul><ul id="d65b0938-7d9e-46b4-a252-5b02900b5489" class="bulleted-list"><li style="list-style-type:disc"><code><strong>ln  [-s]  src dst</strong></code>：只是源文件的一个引用，删除源文件，该链接就无法使用</li></ul><p id="2ba40c6d-29fe-416e-b56c-590afc81677f" class="">
+</p><h2 id="60034382-f41e-43f4-a1e7-072dc1721f5d" class="">10.  压缩和解压</h2><p id="342e0550-1e2a-4ec8-93f4-fff4c097784b" class="">linux支持的压缩包格式有</p><ul id="11becb7e-98de-47ad-936a-cbda8f891652" class="bulleted-list"><li style="list-style-type:disc">.gz</li></ul><ul id="e69fe8c7-46ac-4ec4-ad56-7804e3f09cc2" class="bulleted-list"><li style="list-style-type:disc">.bz2</li></ul><ul id="5a7a8019-fe01-4955-8905-eaf3ef2d2582" class="bulleted-list"><li style="list-style-type:disc">.zip</li></ul><p id="55c9c6d1-131c-4ff5-9de2-d3e69f59c039" class="">对于.gz和.bz2格式压缩包的操作</p><ul id="06145bcc-3a48-4fa8-a1c0-0a189de06c64" class="bulleted-list"><li style="list-style-type:disc">tar：对文件进行压缩或解压<ul id="d552317f-29f5-49fe-96a1-c21f9f12c6c7" class="bulleted-list"><li style="list-style-type:circle">-c：对文件进行打包</li></ul><ul id="cfb0f87a-761a-4e0e-87d8-1bbf10b954b1" class="bulleted-list"><li style="list-style-type:circle">-v：显示打包或解包文件的信息</li></ul><ul id="76be844c-e786-4e95-952b-483fc9af0369" class="bulleted-list"><li style="list-style-type:circle">-f：指定文件名，该选项必须写在最后</li></ul><ul id="c703ede8-f10e-436b-8e06-1ff40a983a53" class="bulleted-list"><li style="list-style-type:circle">-z：压缩或解压（.gz）</li></ul><ul id="8538efa6-0509-4eb7-a196-3a18ca59ef75" class="bulleted-list"><li style="list-style-type:circle">-j：压缩或解压（.bz2）</li></ul><ul id="af4ab7d7-889f-494d-a3c6-1e6246e33833" class="bulleted-list"><li style="list-style-type:circle">-x：解包</li></ul><ul id="d577bdae-6337-4d14-a575-f36b443631d9" class="bulleted-list"><li style="list-style-type:circle">-C：解包到指定路径</li></ul></li></ul><p id="b3942646-1a62-4398-b0e2-3109beaaf15e" class="">对于.zip格式的压缩包</p><ul id="b2a0203e-b77a-4d92-9eac-5217f630e6f6" class="bulleted-list"><li style="list-style-type:disc">zip 或 unzip<ul id="2df386e1-cd8d-4d76-9c6d-b5dbf790bade" class="bulleted-list"><li style="list-style-type:circle">-d：压缩或解压到指定路径</li></ul></li></ul><p id="35e5e3c8-94e1-4e21-ae95-f1b31fd5e4ee" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="db61e9d0-f1ff-44e6-9561-e48b1b6b2f6e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="f588e23b-8494-4314-a135-c6c9a0945469" class="">（1）ctrl + c：强制停止，命令输入错误时，也可通过该快捷键（2）直接取消pass掉</p><p id="8e04edc0-b2c5-4133-abe6-55b8f47897fe" class="">（3）ctrl + d：退出账户的登录，或者退出某些特定程序的专属页面（比如在python环境中，使用该hotkey可以直接退出）</p><p id="5e82e505-7dab-4a88-902a-97ffb6b7dd29" class="">（4）history：历史输入的命令</p><p id="c41d34f4-95c0-4fc3-95b7-f00f2e8f00c1" class="">（5）可以通过 ！命令前缀，自动执行上一次匹配前缀的命令</p><p id="1e80177f-62e5-4262-bc58-eda43cfbd0a7" class="">（6）ctrl + r：输入内容去匹配历史内容<div class="indented"><ul id="b7661da9-898c-4976-a92e-0807e7358bcb" class="bulleted-list"><li style="list-style-type:disc">回车键可以直接执行</li></ul><ul id="743b50fe-272c-40be-8539-2d114330d642" class="bulleted-list"><li style="list-style-type:disc">键盘左右键，可以得到此命令（不执行）</li></ul></div></p><p id="c1a8139f-fc7c-4276-be74-748d0c4d7af6" class="">（7）光标移动快捷键<div class="indented"><ul id="112ef572-e068-45e9-8e81-1cf9b8d85594" class="bulleted-list"><li style="list-style-type:disc">ctrl + a：跳到命令开头 </li></ul><ul id="ce800cd1-d0fc-4a34-a020-9e4e3735a1bb" class="bulleted-list"><li style="list-style-type:disc">ctrl + e：跳到命令结尾</li></ul><ul id="5016500e-282c-49c6-a660-9b7bd50d0398" class="bulleted-list"><li style="list-style-type:disc">ctrl + ←：向左跳一个单词</li></ul><ul id="6e2ad4ee-2374-4a5f-afec-242a77821d0a" class="bulleted-list"><li style="list-style-type:disc">ctrl + →：向右跳一个单词</li></ul></div></p><p id="becee606-94df-452b-8595-c3149e260ddc" class="">（8）ctrl + l：清空终端内容</p></div></figure><p id="20229610-ef6a-4d80-ab33-fa3b17379f50" class="">
+</p></div></p></div></details><p id="dee591e6-85fd-4b45-8fb2-4d52814b46b1" class="">
+</p><p id="7184a120-d72d-4eee-9b31-1339576b4b37" class="">
+</p><p id="65d4f43d-2c73-47ef-b5c9-fd203b81fb5c" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Linux高级命令</summary><div class="indented"><h2 id="16e495c7-bf7a-478c-b736-a483bcbe672a" class="">11.  更改文件的权限</h2><figure id="f1d44d6b-e260-4576-a021-f527b0317f0c" class="image"><a href="image.png"><img style="width:528px" src="image.png"/></a></figure><ul id="5443bc7b-d2a3-4358-a047-c14532729ef7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>chown [-R] [user] [:] [usergroup] 文件或文件夹</strong></code>：修改文件或目录的所有者<ul id="81b06acc-b188-4bfd-8594-4d996e660602" class="bulleted-list"><li style="list-style-type:circle">-R：对文件夹内全部内容应用相同规则</li></ul><ul id="83c47c3c-d74a-4f29-b011-8f195cf0ceb7" class="bulleted-list"><li style="list-style-type:circle">user：修改所属用户</li></ul><ul id="6762f97d-5da6-4815-9f16-aaa1ef437233" class="bulleted-list"><li style="list-style-type:circle">usergroup：修改所属用户组</li></ul><ul id="c95d7a36-63e7-4f12-b053-590098928136" class="bulleted-list"><li style="list-style-type:circle">：用于分隔用户和用户组</li></ul></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ab8f2363-5998-4a3a-b1f0-a29a36f5c785"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="191ce0ce-8b9e-4e45-bef2-2cb1da40b1e8" class=""><mark class="highlight-red">普通用户无法修改所属为其他用户或组</mark></p></div></figure><ul id="da6bf234-1378-4184-bb70-c03a13583818" class="bulleted-list"><li style="list-style-type:disc">chmod：更改文件的权限<ul id="77edd463-e8d6-4ac5-bf5e-805d108e3e54" class="bulleted-list"><li style="list-style-type:circle">角色<ul id="d9415c28-a775-4b0f-a250-e6dabaa49557" class="bulleted-list"><li style="list-style-type:square">u：使用者</li></ul><ul id="34e2e44e-9925-4024-b95c-ab4e40fed6b5" class="bulleted-list"><li style="list-style-type:square">g：用户群</li></ul><ul id="d715973c-928b-49c4-b2b9-b26ecc5693a1" class="bulleted-list"><li style="list-style-type:square">o：其他用户</li></ul><ul id="5b2ea9d2-b999-47e5-8584-a948d9770e28" class="bulleted-list"><li style="list-style-type:square">a：所有用户</li></ul></li></ul><ul id="9cb0f25a-a096-4ae1-8678-c343e0275725" class="bulleted-list"><li style="list-style-type:circle">运算符<ul id="04f74fd6-af5d-453d-a4c0-635c337d22c8" class="bulleted-list"><li style="list-style-type:square">-：撤销权限</li></ul><ul id="809f8657-0026-42ad-b51f-37a546b75985" class="bulleted-list"><li style="list-style-type:square">+：添加权限</li></ul><ul id="21edc562-246a-42e6-a8a0-8f323f102e99" class="bulleted-list"><li style="list-style-type:square">=：设置权限</li></ul></li></ul><ul id="4f907891-2fc8-4dec-9463-76e9bf39af68" class="bulleted-list"><li style="list-style-type:circle">权限（可以用三位数字表示，第一个数字表示user，第二个数字表示group，第三个数字表示other）<ul id="ca5fd2b7-aea7-4d65-9469-c7f128451262" class="bulleted-list"><li style="list-style-type:square">r：可读（4）</li></ul><ul id="35c457ec-72f6-4333-8c21-b0e723d55cd1" class="bulleted-list"><li style="list-style-type:square">w：可写（2）</li></ul><ul id="a73fa95f-af2d-47e1-b52f-034f73a38a0f" class="bulleted-list"><li style="list-style-type:square">x：可执行（1）</li></ul><ul id="0b207a8d-9ad5-40bb-a969-c3f94c082ed3" class="bulleted-list"><li style="list-style-type:square">-：无权限（0）</li></ul></li></ul></li></ul><h2 id="cc10f8a8-4740-41bd-aa2e-9d04ffcdf7a2" class="">12. 获取管理员权限</h2><ul id="517e8334-afc5-4fd0-962d-4a36ceac98e8" class="bulleted-list"><li style="list-style-type:disc"><code><strong>sudo -s</strong></code>：获取root权限，可以多次执行</li></ul><ul id="8ff3d0e2-cd38-4c71-bd82-f18ce2a85448" class="bulleted-list"><li style="list-style-type:disc">sudo：获取管理员权限，执行一次后就自动退出</li></ul><ul id="284528c3-c7c1-49de-a9c5-e82f08a92db0" class="bulleted-list"><li style="list-style-type:disc">exit：退出当前用户</li></ul><ul id="47d35a8c-d650-4494-ac0e-479b777ed92e" class="bulleted-list"><li style="list-style-type:disc">passwd：更改用户密码</li></ul><p id="d87801d2-8e25-4400-b775-e3c3ebffe250" class="">
+</p><h2 id="6ebe0821-7c64-4652-ad37-a94845ee1be6" class="">13. 关机和重启</h2><ul id="baf86cb9-cde6-4f42-a35b-4552c365c83e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>shutdown -h now</strong></code>：关机</li></ul><ul id="68d44a2e-5e99-40f0-8076-0a0a086eb532" class="bulleted-list"><li style="list-style-type:disc">reboot：重启</li></ul><p id="c56f8032-bc9c-47b7-b7c5-9781081ae0ca" class="">
+</p><h2 id="c8dc2b57-12d7-4631-bcff-6d7c3ea9becc" class="">14. 用户相关的操作</h2><ul id="421fcde0-ddba-4225-8529-8dec6d773c6d" class="bulleted-list"><li style="list-style-type:disc">who/w：显示当前登录的用户信息</li></ul><ul id="6da8e53b-9a06-41eb-884a-130e57148d3e" class="bulleted-list"><li style="list-style-type:disc">useradd：添加用户<ul id="1df570b6-dd52-40f1-a3c0-9c07a6c8bfaf" class="bulleted-list"><li style="list-style-type:circle">-m：自动创建名字为用户名的主目录，添加用户时最好添加该选项</li></ul><ul id="bd79c56a-78d8-42ef-9c57-38fdc9aad410" class="bulleted-list"><li style="list-style-type:circle">-g：指定用户所属的群，如果没有指定将自动指定到相同用户名的用户群</li></ul></li></ul><ul id="90402469-8ae4-4ad2-bf73-f7930a7c50b3" class="bulleted-list"><li style="list-style-type:disc">su -用户名：更改用户</li></ul><ul id="07ffb077-1548-42fa-a8ad-1f43c72a2f67" class="bulleted-list"><li style="list-style-type:disc">usermod：更改用户信息<ul id="914c4b74-fe9f-4769-963b-c3340dec7bec" class="bulleted-list"><li style="list-style-type:circle">-g：更改用户群</li></ul><ul id="5545156d-1672-477e-b3ae-28d01e9912d3" class="bulleted-list"><li style="list-style-type:circle">-G：设置一个附加群</li></ul></li></ul><ul id="27ab9a59-1cd9-4726-8d73-a0193a489f0c" class="bulleted-list"><li style="list-style-type:disc">userdel：删除指定用户<ul id="a83614eb-ee87-4ec6-a3d4-188cbf27df2b" class="bulleted-list"><li style="list-style-type:circle">-r username：删除用户主目录</li></ul></li></ul><ul id="5b91f5fb-b9b9-453c-a45f-5d47337b8b95" class="bulleted-list"><li style="list-style-type:disc"><code><strong>getent passwd</strong></code>：可以查看当前系统中有哪些用户</li></ul><ul id="a02a0c59-6f68-4cac-9c7b-3a3a1087d42b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>getent group</strong></code>：可以查看当前系统中有哪些组</li></ul><h2 id="44eb88f1-004e-4c39-9698-f8cc07e9baca" class="">15. 用户群的相关操作</h2><p id="95fcd610-abed-4dc6-be43-635686e62c60" class="">默认添加的用户是无法使用管理员权限的，如果想让添加的用户能够使用管理员权限，可以将该用户添加到一个附加组中即可</p><ul id="3bd24883-8a5a-449b-8c8f-4a07466de976" class="bulleted-list"><li style="list-style-type:disc">gpasswd：添加或删除附加组的信息<ul id="1a64fe47-9ee3-4d1e-a252-a04fc21af6c8" class="bulleted-list"><li style="list-style-type:circle">username：添加附加群</li></ul><ul id="2333e84e-0b6f-4f1b-97a6-d62dfcadf801" class="bulleted-list"><li style="list-style-type:circle">-d：username：删除附加群</li></ul></li></ul><ul id="84afeb5d-cfa1-4186-b248-69271dca4db3" class="bulleted-list"><li style="list-style-type:disc">groupadd：创建用户组</li></ul><ul id="085ba146-74a7-43c7-ac7e-6b5a55396d98" class="bulleted-list"><li style="list-style-type:disc">groupdel：删除用户组</li></ul><p id="6ae50161-2cf0-4893-bd1b-d2413ac23af8" class="">
+</p><h2 id="b29e3414-56de-4158-ba56-66598877b634" class="">16. 进程</h2><ul id="6a268fb4-22f2-491e-a0c5-46b8ed7ece66" class="bulleted-list"><li style="list-style-type:disc">ps：显示当前运行的进程</li></ul><ul id="0b44b2f3-a400-4f95-b988-43b4167c8fc4" class="bulleted-list"><li style="list-style-type:disc">kill：终止进程</li></ul><ul id="9307ae04-71ca-4a04-b36f-a7f6118b3c60" class="bulleted-list"><li style="list-style-type:disc">top：实时监视系统资源</li></ul><ul id="a944e758-4df0-41e9-b23e-6d29f55abb23" class="bulleted-list"><li style="list-style-type:disc">htop：更友好的进程监视器</li></ul><p id="a6a5f425-518e-4f7d-b791-fc3d13431b86" class="">
+</p><h2 id="9031e03c-45fe-4a9b-a54f-acdd31df6dca" class="">17.  配置网络</h2><p id="241cd91c-f78d-4b58-b42f-b82a223111de" class=""><strong>主机名</strong></p><ul id="d9f8b1da-ec00-41d1-9212-027ce3616774" class="bulleted-list"><li style="list-style-type:disc">hostname：查看主机名</li></ul><ul id="e96457b3-e2ed-431d-8c37-5ea98678b27b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>hostnamectl set -hostname</strong></code>：修改主机名</li></ul><p id="e8fe7318-dbb2-4d57-8944-5eeec698a394" class="">
+</p><p id="ec2b1784-b565-4e86-879e-1230ec7c6f94" class=""><strong>特殊IP地址</strong></p><ul id="f38bae32-1e8b-4799-9656-96eee697d58a" class="bulleted-list"><li style="list-style-type:disc">127.0.0.1：这个ip地址用于指代本机</li></ul><ul id="94990cd7-904d-416d-9134-00fc0417b1f9" class="bulleted-list"><li style="list-style-type:disc">0.0.0.0：特殊ip地址<ul id="a2e59480-0360-428a-a436-e873156f8d85" class="bulleted-list"><li style="list-style-type:circle">可以用于指代本机</li></ul><ul id="8a383c7c-98d6-422b-a119-4d06ecd68b43" class="bulleted-list"><li style="list-style-type:circle">可以在端口绑定中用来确定绑定关系</li></ul><ul id="30b41b14-3a52-4675-854f-ed9274ff630d" class="bulleted-list"><li style="list-style-type:circle">在一些ip地址限制中，表示所有ip的意思，如放行规则设置为0.0.0.0，表示允许任意ip访问</li></ul></li></ul><p id="d150dd4c-0f4a-4a25-bbbd-74b9e002088a" class="">
+</p><p id="52696c21-4c22-4512-8d5e-3e0c73e23041" class=""><strong>域名解析</strong></p><p id="510e237c-a8aa-4853-99ba-6e0b867624ee" class="">可以通过主机名找到对应计算机的ip地址，这就是主机名映射（域名解析）</p><p id="3c5f1c7f-2eeb-4a72-8ed1-fb37481be6d5" class="">先通过系统本地的记录去查找，如果找不到就联网去公开DNS服务器去查找</p><figure id="aaee39cc-a986-4bf6-aa60-fe5f15a32d8c" class="image"><a href="image%201.png"><img style="width:1320px" src="image%201.png"/></a></figure><ul id="cd5e099a-1191-4277-9536-0f38a74f94e8" class="bulleted-list"><li style="list-style-type:disc">ifconfig/ip：查看和配置网络接口信息</li></ul><ul id="88925adc-9c76-4fae-a5c0-0c115c416c50" class="bulleted-list"><li style="list-style-type:disc">netstat/ss：显示网络连接信息</li></ul><ul id="92e68b8d-ea1a-4102-befc-a2a5664265fc" class="bulleted-list"><li style="list-style-type:disc">ping：测试与主机的连通性</li></ul><ul id="365192fd-a054-4ade-b4c5-9361786499f1" class="bulleted-list"><li style="list-style-type:disc">wget/curl：从网络下载文件</li></ul><ul id="5c8fe3a1-106d-4e84-8d28-0c71865ad0cb" class="bulleted-list"><li style="list-style-type:disc">ssh：远程登录到其他计算机</li></ul><ul id="a3f4f8c7-77d0-482c-86b4-867798f154f4" class="bulleted-list"><li style="list-style-type:disc">scp：安全地将文件从本地复制到远程主机，或从远程主机复制到本地</li></ul><ul id="aa877e05-df3c-4288-aacc-66da0de58b98" class="bulleted-list"><li style="list-style-type:disc">nc：用于网络连接测试和数据传输</li></ul><ul id="58c96a4e-b73d-4a14-a231-5d8b80050d88" class="bulleted-list"><li style="list-style-type:disc">nmcli：用于管理网络连接的命令行工具</li></ul><ul id="f730fc16-913f-43bb-b8ab-1db36a75a9c7" class="bulleted-list"><li style="list-style-type:disc">rsync：用于在本地和远程系统之间同步文件和目录<p id="275f7d4a-5c99-45c1-ba20-f541e43d8bd8" class="">
+</p></li></ul><h2 id="5112bb37-4af0-4bca-b29f-1f5db77889de" class="">18. 磁盘操作</h2><ul id="5fd6b773-f01f-4ce2-95ca-d73422685feb" class="bulleted-list"><li style="list-style-type:disc">df：显示磁盘空间使用情况</li></ul><ul id="88dac791-5397-4ff5-8ff5-0d0b1f116335" class="bulleted-list"><li style="list-style-type:disc">du：显示目录的自盘使用情况</li></ul><ul id="0ecf5bb8-b3e2-4d1b-9695-0a6d7e409239" class="bulleted-list"><li style="list-style-type:disc">lsblk：查看磁盘分区信息</li></ul><ul id="f83ac59e-617e-4f3b-81e5-8c15c5bea419" class="bulleted-list"><li style="list-style-type:disc">fdisk：管理磁盘，打开磁盘分区工具</li></ul><ul id="20b44640-8342-453c-9edf-24e952f053ab" class="bulleted-list"><li style="list-style-type:disc">free：显示内存使用情况，以MB为单位</li></ul><h2 id="ee93be21-f87d-44f5-a8ac-891a35b82d3f" class="">19. 与数据库的交互</h2><ul id="02401729-4f42-411d-baa9-b9663caa9d65" class="bulleted-list"><li style="list-style-type:disc">psql：用于PostgreSQL数据块</li></ul><ul id="8e502b3f-af73-45bb-80ab-3cc96311fb4a" class="bulleted-list"><li style="list-style-type:disc">mysql：用于MySQL数据库</li></ul><p id="b972030b-8256-4869-a31c-5b3b25671339" class="">
+</p><h2 id="281ddf87-af7f-4b9e-9f6e-b66a2438ef91" class="">20. 软件安装</h2><h3 id="8c4ad40f-4650-4961-9939-5794ad7ef4fe" class="">软件安装介绍</h3><p id="5d3afa32-1a46-4c20-b245-28f6ffbf2c5e" class="">yum命令（centOS）</p><ul id="00dc690d-b937-4e37-abd8-44e8cabaf4e4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>yum [-y] [install | remove | search]  软件名称 </strong></code><ul id="d931b13d-e919-4927-b0c7-031bd2dfa2e0" class="bulleted-list"><li style="list-style-type:circle">-y：自动确认，无需手动确认安装或卸载过程</li></ul></li></ul><p id="4e493a1f-7835-45e0-8b90-68f7b74d1c8a" class="">
+</p><p id="814dbdfe-fcef-453c-be66-c9b3f10d483b" class="">ubuntu软件安装有两种方式：</p><ul id="0bef0210-9814-4410-b217-52fe058fc858" class="bulleted-list"><li style="list-style-type:disc">离线安装（deb文件格式安装）</li></ul><ul id="4679f94c-5aa6-4cd4-89c2-1aa5078476a7" class="bulleted-list"><li style="list-style-type:disc">在线安装（apt-get方式安装）</li></ul><h3 id="bc2b882c-19c0-4c10-866d-9cce7e34ee59" class="">deb文件格式安装、卸载</h3><ul id="62e46cd6-cb56-4475-a25e-ce1d10c6433d" class="bulleted-list"><li style="list-style-type:disc">dpkg：安装和卸载deb安装包<ul id="5c99ab86-2607-4b76-ac51-d1e8a5ba2fb0" class="bulleted-list"><li style="list-style-type:circle">-i：离线安装deb安装包</li></ul><ul id="47fa5dfa-a8ea-438e-bfce-e50d16cf1274" class="bulleted-list"><li style="list-style-type:circle">-r：卸载</li></ul></li></ul><p id="654e5341-e6cd-438f-9ccb-07c62cc49cf4" class="">
+</p><h3 id="e51f6126-7f3b-4e6a-b212-13bdbb6f8779" class="">apt-get方式安装</h3><ul id="a757a844-7b3e-4556-959d-dd534f34b433" class="bulleted-list"><li style="list-style-type:disc"><code><strong>sudo apt-get install 安装包</strong></code>：在线安装deb安装包</li></ul><ul id="166789dc-5ad4-45eb-b4ab-47df1207ed42" class="bulleted-list"><li style="list-style-type:disc"><code><strong>sudo apt-get remove安装包</strong></code>：卸载在线deb安装包</li></ul><p id="db5ca1c6-af13-401f-849d-a28aecbd1fd1" class="">
+</p><p id="81ee6f2f-57e2-4bce-b003-d8de28fe8e29" class="">
+</p><h3 id="7f33ad26-80bd-4336-8397-b6338543d62b" class="">systemctl命令</h3><ul id="11bf7d9c-57f5-4c2f-b8d3-f6c845b12731" class="bulleted-list"><li style="list-style-type:disc"><code><strong>systemctl start | stop | status | enable |disable 服务名</strong></code><ul id="70812148-3fc7-4ef4-a8d3-1cc1ab079b1a" class="bulleted-list"><li style="list-style-type:circle">enble：开机自启</li></ul><ul id="fdbb1d5f-f669-4add-a6c5-d8fe78585331" class="bulleted-list"><li style="list-style-type:circle">disable：开机不会自启</li></ul></li></ul><p id="6995d853-74a8-4017-8488-2ff9b70e7b0d" class="">
+</p><h3 id="399d1a28-5ec3-4948-886d-a31d09b36e59" class="">更改镜像源</h3></div></details><div id="d4444552-50de-4c0b-9c2c-9cbba2b24b85" class="column-list"><div id="8a26dc2c-28ad-412e-8f29-a3795d680424" style="width:93.75%" class="column"><p id="bd6aac89-735a-4660-8606-c82930e0f757" class=""><div class="indented"><p id="8bdf6a2d-3dd7-4db8-b673-7320cee847a6" class="">
+</p></div></p><p id="049899f7-fe92-42c8-a2e1-624b4b600889" class="">
+</p><p id="c96d705c-469b-4d50-a956-e320dfdaa685" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">vim编辑器</summary><div class="indented"><h2 id="68b681e9-b9a6-49ff-b619-9df74dbba690" class="">命令模式（默认进行命令模式）</h2><ul id="00f691fd-758e-4c79-ad1d-7a90f7687cdb" class="bulleted-list"><li style="list-style-type:disc">yy：复制光标所在行</li></ul><ul id="f8c2d1b1-428b-4106-b3a3-cefb47671544" class="bulleted-list"><li style="list-style-type:disc">nyy：复制n行</li></ul><ul id="682ce96e-b410-4d0c-8fd2-447fd1f62d79" class="bulleted-list"><li style="list-style-type:disc">p：粘贴</li></ul><ul id="34ef855e-348b-40ca-850f-a54a3b1bf4a6" class="bulleted-list"><li style="list-style-type:disc">dd：删除/剪切当前行</li></ul><ul id="b4ef03c1-b91e-44fa-8539-5cdac8c6ee2d" class="bulleted-list"><li style="list-style-type:disc">ndd：n是数字，从当前行开始删除n行</li></ul><ul id="2b1588cd-2cdc-45d7-af62-dfd99a83d130" class="bulleted-list"><li style="list-style-type:disc">V：按行选中</li></ul><ul id="6247ad3e-6432-4040-9677-d58ca3858933" class="bulleted-list"><li style="list-style-type:disc">u：撤销</li></ul><ul id="ece8fe9b-f922-4c0b-a6a4-aefd8e898ecb" class="bulleted-list"><li style="list-style-type:disc">ctrl + r：反撤销</li></ul><ul id="fa5890fc-4278-4987-ad85-3da464080850" class="bulleted-list"><li style="list-style-type:disc">&gt;&gt;：往右缩进</li></ul><ul id="271d4502-9ec7-496c-afe6-2c2a148fefe5" class="bulleted-list"><li style="list-style-type:disc">&lt;&lt;：往左缩进</li></ul><ul id="a98c67d2-9263-48e3-abc6-33a0f1cd34b8" class="bulleted-list"><li style="list-style-type:disc"><strong>:/搜索的内容</strong>：搜索指定内容</li></ul><ul id="13137861-c2dd-4495-b926-ca852c5ae320" class="bulleted-list"><li style="list-style-type:disc"><strong>:%s/要替换的内容/替换后的内容/g</strong>：全局替换</li></ul><ul id="e1e63d18-6bf4-4fc1-9f14-6089e5974f0c" class="bulleted-list"><li style="list-style-type:disc"><strong>:开始行数,结束行数s/要替换的内容/替换后的内容</strong>：局部替换</li></ul><ul id="3243e28d-64b7-46e4-b4c1-9ace2b82d947" class="bulleted-list"><li style="list-style-type:disc"><strong>.</strong> ：重复上一次命令操作</li></ul><ul id="d8a21b0d-c8cd-4e76-847f-eae3f726bb39" class="bulleted-list"><li style="list-style-type:disc">G：回到最后一行</li></ul><ul id="f44f8c58-7829-454c-bfeb-2ec489b5dc35" class="bulleted-list"><li style="list-style-type:disc">gg：回到第一行</li></ul><ul id="81ffe8a6-7be2-499c-b238-3af32e2ed67c" class="bulleted-list"><li style="list-style-type:disc"><strong>数字+G</strong>：回到指定行</li></ul><ul id="a442b1a0-9a24-48c2-8bcd-27bf3342b60e" class="bulleted-list"><li style="list-style-type:disc">^：回到当前行的行首</li></ul><ul id="b036f821-a083-44f8-8056-d6fdc7413060" class="bulleted-list"><li style="list-style-type:disc">$：回到当前行的行末</li></ul><ul id="c22482da-f737-4ba5-88c0-2c920eeb6b26" class="bulleted-list"><li style="list-style-type:disc">ctrl+f：下一屏</li></ul><ul id="cb482864-8807-40d3-bf58-06bb2384be32" class="bulleted-list"><li style="list-style-type:disc">ctrl+b：上一屏</li></ul><ul id="00f3e373-2eb7-4411-83f2-0ab500e38789" class="bulleted-list"><li style="list-style-type:disc">V+G：全选</li></ul><h2 id="7eac1190-6291-4aaa-8c06-a6b331599136" class="">编辑模式（按 i 进入编辑模式）</h2><ul id="2e301bc6-d3b4-400e-b71c-16836151afe2" class="bulleted-list"><li style="list-style-type:disc">i：在当前光标位置进入输入模式</li></ul><ul id="b7ca259e-5502-4fc3-a9f3-878907445ea9" class="bulleted-list"><li style="list-style-type:disc">a：在当前光标位置之后进入输入模式</li></ul><ul id="0b5312a7-139e-41af-9b2e-7a457c06c8ee" class="bulleted-list"><li style="list-style-type:disc">I：在当前行的开头进入输入模式</li></ul><ul id="ed9e8be0-7909-4d19-a21b-289effba4c38" class="bulleted-list"><li style="list-style-type:disc">A：在当前行的结尾进入输入模式</li></ul><ul id="107f176a-b21b-4364-86dc-720b152f0295" class="bulleted-list"><li style="list-style-type:disc">o：在当前行的下一行进入输入模式</li></ul><ul id="80174cc9-3235-4b14-8282-a5e2d9aceced" class="bulleted-list"><li style="list-style-type:disc">O：在当前行的上一行进入输入模式</li></ul><h2 id="4bfd027e-0edb-49a2-9eb0-0f3fa872bcb3" class="">末行模式（按：进入末行模式）</h2><ul id="fec1135c-aece-43a2-83cb-cbca3c5e73e0" class="bulleted-list"><li style="list-style-type:disc">w：保存</li></ul><ul id="922cb5b4-f69f-495a-a941-58bb05203100" class="bulleted-list"><li style="list-style-type:disc">q：退出</li></ul><ul id="f42ee3d8-8b07-440f-aacb-dac2b469d357" class="bulleted-list"><li style="list-style-type:disc">x：保存退出</li></ul><ul id="a8b2b6dc-8b2e-468f-9483-873cbaea8e46" class="bulleted-list"><li style="list-style-type:disc">wq：保存退出</li></ul><ul id="06561393-0e4b-47ff-880f-d50caed963f8" class="bulleted-list"><li style="list-style-type:disc">q!：强制退出</li></ul><ul id="7fbf33c5-470d-4e66-9354-641442f29104" class="bulleted-list"><li style="list-style-type:disc">set nu：显示行号</li></ul><ul id="f57d0c71-9933-4db6-86c3-e75b898d5154" class="bulleted-list"><li style="list-style-type:disc">set paste：设置粘贴模式</li></ul></div></details><p id="a1e21e71-fac4-401d-94f2-0e3500a9c82f" class="">
+</p></div><div id="5049ad81-9f74-424b-b9b9-57cf2fe7f89e" style="width:6.25%" class="column"><p id="217a14b8-72fd-4cc4-adb0-b83d287f6355" class="">
+</p><p id="6170ece6-b592-4706-82d3-98ccbe0dd086" class="">
+</p></div></div><p id="73c24b9f-a8cd-43a9-b11d-46acda819023" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
